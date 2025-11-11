@@ -41,7 +41,7 @@ in
         margin-right = 0;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ ];
-        modules-right = [ "hyprland/language" "pulseaudio" "network" "tray" "clock" ];
+        modules-right = [ "hyprland/language" "pulseaudio" "tray" "clock" ];
         "hyprland/workspaces" = {
           all-outputs = true;
           disable-scroll = true;
@@ -53,12 +53,6 @@ in
         };
         clock = {
           format = "{:%Y-%m-%d %H:%M}";
-        };
-        network = {
-          format-wifi = "{essid}";
-          format-ethernet = "Ethernet";
-          format-disconnected = "Disconnected";
-          tooltip-format = "{ifname} via {gwaddr}";
         };
         pulseaudio = {
           format = "{volume}%";
@@ -107,7 +101,6 @@ in
       #hyprland-language,
       #clock,
       #tray,
-      #network,
       #pulseaudio {
         background-color: transparent;
         color: #d4d4d4;
@@ -118,11 +111,13 @@ in
       #tray {
         padding: 0 4px;
       }
-      
-      #network.disconnected {
-        color: #808080;
+      #tray > * {
+        margin: 0 4px;
       }
-      
+      #tray > *:last-child {
+        margin-right: 0;
+      }
+
       #pulseaudio.muted {
         color: #808080;
       }
