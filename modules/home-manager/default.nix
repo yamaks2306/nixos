@@ -2,9 +2,30 @@
 
 let
   hyprland-bindings = import ./hyprland-bindings.nix;
-  user-packages = import ./packages.nix { inherit pkgs; };
 in
-user-packages // {
+{
+  home.packages = with pkgs; [
+    home-manager
+    tree
+    vim
+    wget
+    pavucontrol
+    rofi
+    rofi-calc
+    rofi-power-menu
+    vivaldi
+    vivaldi-ffmpeg-codecs
+    kitty
+    waybar
+    hyprpaper
+    mako
+    grimblast
+    playerctl
+    brightnessctl
+    xorg.xkill
+    networkmanagerapplet
+  ];
+
   programs.git.enable = true;
   programs.bash.enable = true;
   programs.hyprlock.enable = true;
@@ -19,7 +40,6 @@ user-packages // {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # Enable XWayland for X11 application compatibility
     xwayland.enable = true;
     settings = {
       monitor = [ ",preferred,auto,1" ];
@@ -30,7 +50,7 @@ user-packages // {
       bind = hyprland-bindings.bind;
       input = {
         kb_layout = "us,ru";
-        kb_options = "grp:win_space_toggle";
+        kb_options = "grp:ctrl_space_toggle";
         follow_mouse = 1;
       };
     };
