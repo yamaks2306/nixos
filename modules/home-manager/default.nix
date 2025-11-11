@@ -26,7 +26,33 @@ in
     networkmanagerapplet
   ];
 
-  programs.git = { 
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 32;
+        spacing = 6;
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ ];
+        modules-right = [ "hyprland/language" "pulseaudio" "network" "tray" "clock" ];
+        "hyprland/workspaces" = {
+          all-outputs = true;
+          disable-scroll = true;
+        };
+        "hyprland/language" = {
+          format = "{short}";
+          tooltip = false;
+        };
+        clock = {
+          format = "{:%Y-%m-%d %H:%M}";
+        };
+      };
+    };
+  };
+
+  programs.git = {
     enable = true;
     userName = "yamaks2306";
     userEmail = "maks@yastrebov.email";
