@@ -23,6 +23,8 @@ in
     brightnessctl
     xorg.xkill
     networkmanagerapplet
+    telegram-desktop
+    bitwarden
   ];
 
   programs.waybar = {
@@ -161,6 +163,7 @@ in
       exec-once = [
         "waybar &"
         "mako &"
+	"nm-applet &"
       ];
       bind = hyprland-bindings.bind;
       input = {
