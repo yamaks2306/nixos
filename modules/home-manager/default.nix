@@ -16,7 +16,6 @@ in
     vivaldi
     vivaldi-ffmpeg-codecs
     kitty
-    waybar
     hyprpaper
     mako
     grimblast
@@ -32,14 +31,19 @@ in
       mainBar = {
         layer = "top";
         position = "top";
-        height = 32;
-        spacing = 6;
+        height = 30;
+        spacing = 2;
+        margin-top = 0;
+        margin-bottom = 0;
+        margin-left = 0;
+        margin-right = 0;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ ];
         modules-right = [ "hyprland/language" "pulseaudio" "network" "tray" "clock" ];
         "hyprland/workspaces" = {
           all-outputs = true;
           disable-scroll = true;
+          format = "{id}";
         };
         "hyprland/language" = {
           format = "{short}";
@@ -48,8 +52,79 @@ in
         clock = {
           format = "{:%Y-%m-%d %H:%M}";
         };
+        network = {
+          format-wifi = "{essid}";
+          format-ethernet = "Ethernet";
+          format-disconnected = "Disconnected";
+          tooltip-format = "{ifname} via {gwaddr}";
+        };
+        pulseaudio = {
+          format = "{volume}%";
+          format-muted = "Muted";
+        };
       };
     };
+    style = ''
+      * {
+        border: none;
+        border-radius: 0;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        min-height: 0;
+      }
+      
+      window#waybar {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        border-bottom: 1px solid #2d2d2d;
+      }
+      
+      #workspaces {
+        background-color: transparent;
+        padding: 0 4px;
+      }
+      
+      #workspaces button {
+        padding: 0 8px;
+        margin: 0 2px;
+        background-color: transparent;
+        color: #808080;
+        border-bottom: 2px solid transparent;
+      }
+      
+      #workspaces button:hover {
+        background-color: #2d2d2d;
+        color: #d4d4d4;
+      }
+      
+      #workspaces button.active {
+        color: #d4d4d4;
+        border-bottom: 2px solid #808080;
+      }
+      
+      #hyprland-language,
+      #clock,
+      #tray,
+      #network,
+      #pulseaudio {
+        background-color: transparent;
+        color: #d4d4d4;
+        padding: 0 8px;
+        margin: 0 2px;
+      }
+      
+      #tray {
+        padding: 0 4px;
+      }
+      
+      #network.disconnected {
+        color: #808080;
+      }
+      
+      #pulseaudio.muted {
+        color: #808080;
+      }
+    '';
   };
 
   programs.git = {
