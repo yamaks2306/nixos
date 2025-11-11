@@ -203,6 +203,8 @@ in
     };
   };
 
+  services.gnome-keyring.enable = true;
+
   home.stateVersion = "25.05";
 }
 
