@@ -25,6 +25,8 @@ in
     networkmanagerapplet
     telegram-desktop
     bitwarden
+    twingate
+    gnomeExtensions.twingate-status
   ];
 
   programs.waybar = {
@@ -163,6 +165,7 @@ in
         "waybar &"
         "mako &"
 	"nm-applet &"
+	"twingate-notifier &"
       ];
       bind = hyprland-bindings.bind;
       input = {
