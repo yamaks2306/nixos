@@ -60,6 +60,10 @@ in
           format = "{volume}%";
           format-muted = "Muted";
         };
+        tray = {
+          spacing = 8;
+          icon-size = 18;
+        };
       };
     };
     style = ''
@@ -112,10 +116,10 @@ in
       
       #tray {
         padding: 0;
-        margin: 0;
+        margin: 0 2px;
       }
       #tray > * {
-        margin: 0 4px;
+        margin: 0 6px;
       }
       #tray > *:first-child {
         margin-left: 0;
