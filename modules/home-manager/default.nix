@@ -109,10 +109,14 @@ in
       }
       
       #tray {
-        padding: 0 4px;
+        padding: 0;
+        margin: 0;
       }
       #tray > * {
         margin: 0 4px;
+      }
+      #tray > *:first-child {
+        margin-left: 0;
       }
       #tray > *:last-child {
         margin-right: 0;
