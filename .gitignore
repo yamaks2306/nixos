@@ -1,0 +1,19 @@
+# NixOS specific
+result
+result-*
+*.qcow2
+*.vdi
+*.vmdk
+
+# Hardware configuration (machine-specific, should be generated)
+hardware-configuration.nix
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+
