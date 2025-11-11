@@ -26,7 +26,21 @@ in
     networkmanagerapplet
   ];
 
-  programs.git.enable = true;
+  programs.git = { 
+    enable = true;
+    userName = "yamaks2306";
+    userEmail = "maks@yastrebov.email";
+    aliases = {
+      st = "status";
+    };
+    extraConfig = {
+      init.defaultBranch = "main";
+      safe.directory = [
+	"/etc/nixos"
+        "/home/maks/Project/Personal/Repositories/nixos"
+      ];
+    };
+  };
   programs.bash.enable = true;
   programs.hyprlock.enable = true;
 
